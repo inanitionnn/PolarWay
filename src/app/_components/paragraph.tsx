@@ -1,6 +1,6 @@
-import { ComponentPropsWithRef, Ref, forwardRef } from "react";
+import { type ComponentPropsWithRef, type Ref, forwardRef } from "react";
 import { motion } from "framer-motion";
-import { VariantProps, cva } from "class-variance-authority";
+import { type VariantProps, cva } from "class-variance-authority";
 import { cn } from "~/helpers";
 
 const paragraphVariants = cva("", {
@@ -15,7 +15,7 @@ const paragraphVariants = cva("", {
 });
 
 type Props = ComponentPropsWithRef<"p"> &
-  VariantProps<typeof paragraphVariants> & {};
+  VariantProps<typeof paragraphVariants>;
 
 const Paragraph = forwardRef((props: Props, ref: Ref<HTMLParagraphElement>) => {
   const { className, vsize, children, ...restProps } = props;

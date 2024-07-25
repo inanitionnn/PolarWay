@@ -1,12 +1,12 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { cn, leftSlideAnimation, rightSlideRotatedAnimation } from "~/helpers";
 import { GrainImage, MParagraph, SectionWrapper } from "../_components";
 import Image from "next/image";
 
-type Props = ComponentPropsWithoutRef<"div"> & {};
+type Props = ComponentPropsWithoutRef<"div">;
 
 export const HomeSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const { className, children, ...restProps } = props;
+  const { className, ...restProps } = props;
   return (
     <SectionWrapper
       className={cn("relative", className)}

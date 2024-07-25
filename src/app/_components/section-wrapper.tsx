@@ -1,7 +1,7 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { cn } from "~/helpers";
 
-type Props = ComponentPropsWithoutRef<"div"> & {};
+type Props = ComponentPropsWithoutRef<"div">;
 
 export const SectionWrapper = forwardRef<HTMLDivElement, Props>(
   (props, ref) => {

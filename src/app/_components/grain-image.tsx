@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import NextImage from "next/image";
 import { cn } from "~/helpers";
 
