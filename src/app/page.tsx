@@ -1,37 +1,86 @@
-import Link from "next/link";
+"use client";
+import React, { useEffect, useRef } from "react";
+import { useAnimation, motion } from "framer-motion";
+import { findClosestElementIndex } from "~/helpers";
+import { HomeSection } from "./_modules";
 
-export default function HomePage() {
+const App: React.FC = () => {
+  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+  const controls = useAnimation();
+  const timeoutRef = useRef<number | null>(null);
+
+  const handleScroll = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = window.setTimeout(() => {
+      const sectionOffsets = sectionsRef.current.map(
+        (section) => section?.offsetTop ?? 0,
+      );
+      const scrollPosition = window.scrollY;
+
+      const closestSectionIndex = findClosestElementIndex(
+        sectionOffsets,
+        scrollPosition,
+      );
+
+      const targetScrollY = sectionOffsets[closestSectionIndex] ?? 0;
+
+      window.scrollTo({
+        top: targetScrollY,
+        behavior: "smooth",
+      });
+    }, 250);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
-          </Link>
-        </div>
-      </div>
-    </main>
+    <>
+      <motion.div animate={controls} className="overflow-hidden">
+        <HomeSection
+          ref={(el) => {
+            sectionsRef.current[0] = el;
+          }}
+        />
+
+        <section
+          ref={(el) => {
+            sectionsRef.current[1] = el;
+          }}
+          className="h-screen w-full bg-red-500"
+        >
+          Section 1
+        </section>
+
+        <div className="z-200 absolute h-max w-max bg-blue-500"> Hello</div>
+        <section
+          ref={(el) => {
+            sectionsRef.current[2] = el;
+          }}
+          className="h-screen w-full bg-green-500"
+        >
+          Section 2
+        </section>
+        <section
+          ref={(el) => {
+            sectionsRef.current[3] = el;
+          }}
+          className="h-screen w-full"
+        >
+          Section 3
+        </section>
+      </motion.div>
+    </>
   );
-}
+};
+
+export default App;
