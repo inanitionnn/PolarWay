@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from "react";
-import { GoalsSection, HomeSection } from "./_modules";
+import { GoalsSection, HomeSection, ActivitySection } from "./_modules";
 import { useSnapScroll } from "~/hooks";
 
 const App: React.FC = () => {
@@ -16,6 +16,11 @@ const App: React.FC = () => {
           }}
         />
         <GoalsSection
+          ref={(el) => {
+            sectionsRef.current.push(el);
+          }}
+        />
+        <ActivitySection
           ref={(el) => {
             sectionsRef.current.push(el);
           }}

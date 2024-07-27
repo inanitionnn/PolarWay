@@ -6,6 +6,7 @@ import { cn } from "~/helpers";
 const paragraphVariants = cva("", {
   variants: {
     vsize: {
+      sm: "text-lg xl:text-xl font-extralight md:leading-6 xl:leading-8",
       base: "text-lg md:text-xl xl:text-2xl font-extralight sm:leading-6 md:leading-7 xl:leading-9",
     },
   },
@@ -21,7 +22,7 @@ const Paragraph = forwardRef((props: Props, ref: Ref<HTMLParagraphElement>) => {
   const { className, vsize, children, ...restProps } = props;
   return (
     <p
-      className={cn(paragraphVariants({ vsize, className }))}
+      className={cn(paragraphVariants({ vsize, className }), "text-base")}
       ref={ref}
       {...restProps}
     >

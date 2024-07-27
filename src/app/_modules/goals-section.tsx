@@ -63,7 +63,7 @@ export const GoalsSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
           whileInView="visible"
           viewport={{ once: true, amount: "some" }}
           variants={leftSlideAnimation}
-          className="p-10 md:max-w-[300px] lg:max-w-[700px]"
+          className="p-10 md:max-w-[300px] lg:max-w-[600px]"
         >
           Надихати та об&apos;єднувати молодь для активного соціально
           політичного життя та участі в заходах. Ми прокладаємо шлях до
