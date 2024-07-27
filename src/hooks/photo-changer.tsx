@@ -9,7 +9,7 @@ export const usePhotoChanger = (photos: string[], interval: number): string => {
     }, interval);
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [photos.length, interval]);
 
   return photos[currentPhotoIndex]!;
 };

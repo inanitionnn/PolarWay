@@ -34,5 +34,5 @@ export const useSnapScroll = (sections: (HTMLElement | null)[]) => {
         clearTimeout(timeoutRef.current);
       }
     };
-  }, []);
+  }, [handleScroll]);
 };
