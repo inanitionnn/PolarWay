@@ -15,7 +15,7 @@ export const ActivityCard = forwardRef<HTMLDivElement, Props>((props, ref) => {
   return (
     <div
       className={cn(
-        "relative h-full w-full space-y-4 bg-zinc-900 p-10",
+        "relative flex h-full w-full flex-col items-start justify-center gap-4 bg-zinc-900 p-10",
         className,
       )}
       ref={ref}

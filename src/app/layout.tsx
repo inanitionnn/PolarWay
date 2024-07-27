@@ -29,7 +29,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn(font.className, "bg-zinc-900 text-white")}>
+    <html
+      lang="en"
+      className={cn(font.className, "scroll-smooth bg-zinc-900 text-white")}
+    >
       <body>{children}</body>
       <Analytics />
       <SpeedInsights />
