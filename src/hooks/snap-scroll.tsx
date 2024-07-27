@@ -1,10 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { findClosestElementIndex } from "~/helpers";
 
 export const useSnapScroll = (sections: (HTMLElement | null)[]) => {
   const timeoutRef = useRef<number | null>(null);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
@@ -24,7 +24,7 @@ export const useSnapScroll = (sections: (HTMLElement | null)[]) => {
         behavior: "smooth",
       });
     }, 250);
-  };
+  }, [sections]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);

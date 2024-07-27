@@ -32,11 +32,7 @@ export const HomeSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
       ref={ref}
       {...restProps}
     >
-      <GrainImage
-        alt="team"
-        src={photo}
-        className="brightness-50 saturate-[0.8]"
-      />
+      <GrainImage alt="team" src={photo} />
       <MParagraph
         initial="hidden"
         animate="visible"
@@ -51,8 +47,6 @@ export const HomeSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
       <MParagraph
         initial="hidden"
         animate="visible"
-        // whileInView="visible"
-        // viewport={{ once: true, amount: "some" }}
         variants={rightSlideRotatedAnimation}
         className="absolute right-[0px] top-[170px] hidden max-w-[700px] rotate-90 transform sm:block"
       >

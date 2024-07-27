@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from "react";
-import { HomeSection } from "./_modules";
+import { GoalsSection, HomeSection } from "./_modules";
 import { useSnapScroll } from "~/hooks";
 
 const App: React.FC = () => {
@@ -15,17 +15,21 @@ const App: React.FC = () => {
             sectionsRef.current.push(el);
           }}
         />
+        <GoalsSection
+          ref={(el) => {
+            sectionsRef.current.push(el);
+          }}
+        />
 
         <section
           ref={(el) => {
             sectionsRef.current.push(el);
           }}
-          className="h-screen w-full bg-red-500"
+          className="h-screen w-full bg-blue-500"
         >
           Section 1
         </section>
 
-        <div className="z-200 absolute h-max w-max bg-blue-500"> Hello</div>
         <section
           ref={(el) => {
             sectionsRef.current.push(el);
@@ -36,7 +40,7 @@ const App: React.FC = () => {
         </section>
         <section
           ref={(el) => {
-            sectionsRef.current[3] = el;
+            sectionsRef.current.push(el);
           }}
           className="h-screen w-full"
         >
