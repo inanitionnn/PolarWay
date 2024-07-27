@@ -6,7 +6,7 @@ import { cn } from "~/helpers";
 const paragraphVariants = cva("", {
   variants: {
     vsize: {
-      base: "text-2xl font-extralight leading-9",
+      base: "sm:text-lg md:text-xl lg:text-2xl font-extralight sm:leading-6 md:leading-7 lg:leading-9",
     },
   },
   defaultVariants: {

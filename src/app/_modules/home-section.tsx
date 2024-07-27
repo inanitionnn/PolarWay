@@ -17,11 +17,11 @@ export const HomeSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { className, ...restProps } = props;
   const photo = usePhotoChanger(
     [
-      "summer-table.JPG",
-      "summer-tents.JPG",
       "summer-leaves-climbing.JPG",
+      "summer-tents.JPG",
+      "summer-forest-view.JPG",
       "winter-mountain-panorama.JPG",
-      "winter-backpack.JPG",
+      "winter-skiing-legs.JPG",
       "winter-ascent-to-the-mountain.JPG",
     ],
     1200,
@@ -41,7 +41,7 @@ export const HomeSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
         initial="hidden"
         animate="visible"
         variants={leftSlideAnimation}
-        className="absolute left-[95px] top-[60px] max-w-[700px]"
+        className="absolute left-0 right-0 top-0 p-10 sm:left-[95px] sm:top-[60px] sm:p-0 md:max-w-[300px] lg:max-w-[700px]"
       >
         Polar Way - це громадська організація, що розвиває молодь через
         подорожі, активний відпочинок, українську молодіжну культуру та
@@ -54,7 +54,7 @@ export const HomeSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
         // whileInView="visible"
         // viewport={{ once: true, amount: "some" }}
         variants={rightSlideRotatedAnimation}
-        className="absolute right-[0px] top-[170px] max-w-[700px] rotate-90 transform"
+        className="absolute right-[0px] top-[170px] hidden max-w-[700px] rotate-90 transform sm:block"
       >
         © 2024 Polar Way
       </MParagraph>
@@ -62,13 +62,13 @@ export const HomeSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
         initial="hidden"
         animate="visible"
         variants={opacityAnimation}
-        className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center"
+        className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 flex items-end justify-center p-20 sm:items-center"
       >
         <Image
           alt="logo"
           src={"pw3.svg"}
-          width={250}
-          height={250}
+          width={230}
+          height={230}
           className="backdrop-brightness-70 opacity-75"
         />
       </motion.div>
