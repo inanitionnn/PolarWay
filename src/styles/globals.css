@@ -9,7 +9,7 @@
   width: 300%;
   height: 300%;
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png");
-  opacity: 0.1;
+  opacity: 0.15;
   z-index: 10;
   pointer-events: none;
   animation: animateGrain 10s steps(8) infinite;
