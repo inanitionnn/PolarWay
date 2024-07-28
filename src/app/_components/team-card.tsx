@@ -36,7 +36,7 @@ export const TeamCard = forwardRef<HTMLDivElement, Props>((props, ref) => {
           >
             <div
               className={
-                "flex  h-[150px] min-h-[150px] w-[150px] min-w-[150px] items-center justify-center"
+                "flex  h-[130px] min-h-[130px] w-[130px] min-w-[130px] items-center justify-center"
               }
             >
               {photo ? (

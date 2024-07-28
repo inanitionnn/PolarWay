@@ -17,7 +17,7 @@ export const TeamSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
       ref={ref}
       {...restProps}
     >
-      <div className="absolute left-0 right-0 top-16 z-30 flex flex-col items-center justify-center opacity-75">
+      <div className="absolute left-0 right-0 top-6 z-30 flex flex-col items-center justify-center opacity-75">
         <MHeader
           initial="hidden"
           whileInView="visible"
@@ -27,7 +27,7 @@ export const TeamSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
           Команда
         </MHeader>
       </div>
-      <div className=" hidden h-full w-full grid-cols-4 grid-rows-2 justify-items-center gap-8 p-10 pb-16 pt-72 xl:grid">
+      <div className=" hidden h-full w-full grid-cols-4 grid-rows-2 justify-items-center gap-8 p-10 pb-20 pt-52 xl:grid">
         {TeamMembers.map((member, index) => (
           <TeamCard
             key={index}
