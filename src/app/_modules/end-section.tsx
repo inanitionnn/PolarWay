@@ -5,6 +5,7 @@ import { Paragraph, SectionWrapper } from "../_components";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { AtSign, Phone } from "lucide-react";
+import { Sections } from "~/constants";
 
 type Props = ComponentPropsWithoutRef<"div">;
 
@@ -18,34 +19,17 @@ export const EndSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
     >
       <div className="flex h-full  w-full flex-col justify-between p-10">
         <ul className="flex flex-col items-start justify-start gap-4 lg:gap-2">
-          <li>
-            <Paragraph>
-              <a href="#home" className="hover:underline">
-                Хто ми
-              </a>
-            </Paragraph>
-          </li>
-          <li>
-            <Paragraph>
-              <a href="#goals" className="hover:underline">
-                Мета
-              </a>
-            </Paragraph>
-          </li>
-          <li>
-            <Paragraph>
-              <a href="#activity" className="hover:underline">
-                Діяльність
-              </a>
-            </Paragraph>
-          </li>
-          <li>
-            <Paragraph>
-              <a href="#team" className="hover:underline">
-                Команда
-              </a>
-            </Paragraph>
-          </li>
+          {Object.values(Sections)
+            .filter((e) => e.id !== "end")
+            .map((section) => (
+              <li key={section.id}>
+                <Paragraph>
+                  <a href={`#${section.id}`} className="hover:underline">
+                    {section.name}
+                  </a>
+                </Paragraph>
+              </li>
+            ))}
         </ul>
         <div className="flex flex-col items-end justify-start gap-4 lg:gap-2">
           <div className="flex items-center gap-2">
@@ -77,10 +61,10 @@ export const EndSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
       >
         <Image
           alt="logo"
-          src={"pw3.svg"}
+          src={"/pw3.svg"}
           width={230}
           height={230}
-          className="backdrop-brightness-70"
+          className="backdrop-brightness-70 h-[230px] w-[230px]"
         />
       </motion.div>
     </SectionWrapper>

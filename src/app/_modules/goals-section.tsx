@@ -32,29 +32,18 @@ export const GoalsSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
       {...restProps}
     >
       <div className="relative">
-        <div className="absolute bottom-0 left-0 right-0 top-0 z-30 flex flex-col items-center justify-center">
+        <div className="absolute bottom-0 left-0 right-0 top-0 z-30 flex flex-col items-center justify-center opacity-75">
           <MHeader
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: "all" }}
             variants={rightSlideAnimation}
-            className="pr-32"
           >
-            Наша
-          </MHeader>
-          <MHeader
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: "all" }}
-            custom={1}
-            variants={rightSlideAnimation}
-            className="pl-32"
-          >
-            мета
+            Мета
           </MHeader>
         </div>
 
-        <GrainImage alt="team" src={photo} className="absolute" />
+        <GrainImage alt={photo} src={photo} className="absolute" />
       </div>
 
       <div className="flex items-center justify-center">

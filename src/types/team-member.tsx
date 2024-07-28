@@ -3,5 +3,4 @@ export type teamMember = {
   lastName: string;
   mainPosition: string;
   photo: string | null;
-  temporaryPosition: string | null;
 };

@@ -3,7 +3,7 @@ import { cn } from "~/helpers";
 import { Header } from "./header";
 import { Paragraph } from "./paragraph";
 import { ArrowLeft } from "lucide-react";
-import { activity } from "~/types";
+import type { activity } from "~/types";
 
 type Props = ComponentPropsWithoutRef<"div"> &
   activity & {

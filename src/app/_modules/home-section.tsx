@@ -32,7 +32,7 @@ export const HomeSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
       ref={ref}
       {...restProps}
     >
-      <GrainImage alt="team" src={photo} />
+      <GrainImage alt={photo} src={photo} />
       <MParagraph
         initial="hidden"
         animate="visible"
@@ -60,10 +60,10 @@ export const HomeSection = forwardRef<HTMLDivElement, Props>((props, ref) => {
       >
         <Image
           alt="logo"
-          src={"pw3.svg"}
+          src={"/pw3.svg"}
           width={230}
           height={230}
-          className="backdrop-brightness-70 opacity-75"
+          className="backdrop-brightness-70 h-[230px] w-[230px] opacity-75"
         />
       </motion.div>
     </SectionWrapper>

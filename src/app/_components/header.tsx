@@ -8,7 +8,8 @@ export const headerVariants = cva("font-bold font-head", {
     tag: {
       h1: "text-6xl md:text-8xl xl:text-9xl font-semibold",
       h2: "text-4xl md:text-5xl xl:text-6xl font-normal",
-      h3: "text-2xl xl:text-3xl font-normal sm:leading-6 md:leading-7 xl:leading-9",
+      h3: "text-2xl xl:text-3xl font-normal",
+      h4: "text-xl xl:text-2xl font-normal",
     },
   },
   defaultVariants: {
@@ -16,7 +17,7 @@ export const headerVariants = cva("font-bold font-head", {
   },
 });
 
-type HeaderTag = "h1" | "h2" | "h3";
+type HeaderTag = "h1" | "h2" | "h3" | "h4";
 
 type Props = ComponentPropsWithRef<HeaderTag> &
   VariantProps<typeof headerVariants> & {

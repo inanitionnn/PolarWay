@@ -5,9 +5,10 @@ import {
   HomeSection,
   ActivitySection,
   TeamSection,
+  EndSection,
 } from "./_modules";
 import { useSnapScroll } from "~/hooks";
-import { EndSection } from "./_modules/end-section";
+import { Sections } from "~/constants";
 
 const App: React.FC = () => {
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
@@ -16,31 +17,31 @@ const App: React.FC = () => {
   return (
     <>
       <HomeSection
-        id="home"
+        id={Sections.home.id}
         ref={(el) => {
           sectionsRef.current.push(el);
         }}
       />
       <GoalsSection
-        id="goals"
+        id={Sections.goals.id}
         ref={(el) => {
           sectionsRef.current.push(el);
         }}
       />
       <ActivitySection
-        id="activity"
+        id={Sections.activity.id}
         ref={(el) => {
           sectionsRef.current.push(el);
         }}
       />
       <TeamSection
-        id="team"
+        id={Sections.team.id}
         ref={(el) => {
           sectionsRef.current.push(el);
         }}
       />
       <EndSection
-        id="end"
+        id={Sections.end.id}
         ref={(el) => {
           sectionsRef.current.push(el);
         }}

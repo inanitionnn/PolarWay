@@ -31,10 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(
-        font.className,
-        "overflow-hidden scroll-smooth bg-zinc-900 text-white",
-      )}
+      className={cn(font.className, " scroll-smooth bg-zinc-900 text-white")}
     >
       <body>{children}</body>
       <Analytics />
