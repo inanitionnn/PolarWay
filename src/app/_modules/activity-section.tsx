@@ -1,37 +1,19 @@
 "use client";
 import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { cn, rightSlideAnimation } from "~/helpers";
-import { GrainImage, MHeader, SectionWrapper } from "../_components";
+import {
+  GrainImage,
+  MHeader,
+  SectionWrapper,
+  ActivityCard,
+} from "../_components";
 import { usePhotoChanger } from "~/hooks";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative } from "swiper/modules";
 import "swiper/css";
-import { ActivityCard } from "../_components/activity-card";
+import { Activities } from "~/constants";
 
 type Props = ComponentPropsWithoutRef<"div">;
-
-type Text = {
-  header: string;
-  paragraph: string;
-};
-
-const texts: Text[] = [
-  {
-    header: "01. Походи",
-    paragraph:
-      "Разом ми організовуємо захоплюючі мандрівки та експедиції, які допомагають молоді розширювати свої горизонти, відкривати культуру та природню красу України.",
-  },
-  {
-    header: "02. Заходи",
-    paragraph:
-      "Ми активно займаємся проведенням різноманітних заходів, надаючи учасникам унікальні можливості для самовиявлення, навчання та співпраці.",
-  },
-  {
-    header: "03. Волонтерство",
-    paragraph:
-      "Ми залюбки підтримуємо волонтерські руху та сприяємо поширенню гуманістичних ідеалів серед учасників нашої організації.",
-  },
-];
 
 export const ActivitySection = forwardRef<HTMLDivElement, Props>(
   (props, ref) => {
@@ -75,11 +57,11 @@ export const ActivitySection = forwardRef<HTMLDivElement, Props>(
         </div>
 
         <div className="hidden h-full w-full grid-cols-3 grid-rows-1 md:grid">
-          {texts.map((text, index) => (
+          {Activities.map((text, index) => (
             <ActivityCard
               key={index}
-              headerText={text.header}
-              paragraphText={text.paragraph}
+              header={text.header}
+              paragraph={text.paragraph}
               isFirst={false}
             />
           ))}
@@ -104,13 +86,13 @@ export const ActivitySection = forwardRef<HTMLDivElement, Props>(
             // onSlideChange={() => console.log("slide change")}
             // onSwiper={(swiper) => console.log(swiper)}
           >
-            {texts.map((text, index) => (
+            {Activities.map((text, index) => (
               <>
                 <SwiperSlide className=" h-full w-full">
                   <ActivityCard
                     key={index}
-                    headerText={text.header}
-                    paragraphText={text.paragraph}
+                    header={text.header}
+                    paragraph={text.paragraph}
                     isFirst={index === 0}
                   />
                 </SwiperSlide>

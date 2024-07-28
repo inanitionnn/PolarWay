@@ -3,15 +3,15 @@ import { cn } from "~/helpers";
 import { Header } from "./header";
 import { Paragraph } from "./paragraph";
 import { ArrowLeft } from "lucide-react";
+import { activity } from "~/types";
 
-type Props = ComponentPropsWithoutRef<"div"> & {
-  headerText: string;
-  paragraphText: string;
-  isFirst: boolean;
-};
+type Props = ComponentPropsWithoutRef<"div"> &
+  activity & {
+    isFirst: boolean;
+  };
 
 export const ActivityCard = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const { className, headerText, paragraphText, isFirst, ...restProps } = props;
+  const { className, header, paragraph, isFirst, ...restProps } = props;
   return (
     <div
       className={cn(
@@ -21,8 +21,8 @@ export const ActivityCard = forwardRef<HTMLDivElement, Props>((props, ref) => {
       ref={ref}
       {...restProps}
     >
-      <Header tag="h3">{headerText}</Header>
-      <Paragraph vsize={"sm"}>{paragraphText}</Paragraph>
+      <Header tag="h3">{header}</Header>
+      <Paragraph vsize={"sm"}>{paragraph}</Paragraph>
       {isFirst ? <ArrowLeft className="absolute bottom-10 right-10" /> : null}
     </div>
   );
